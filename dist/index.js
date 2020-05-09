@@ -5,4 +5,8 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./AutionStatus"));
 __export(require("./events"));
-__export(require("./AuctionResponses"));
+__export(require("./AuctionResponse"));
+__export(require("./ItemDeletedResponse"));
+__export(require("./ArtValueResponse"));
+const AuctionPagedResponse_1 = require("./AuctionPagedResponse");
+exports.AuctionPagedResponse = AuctionPagedResponse_1.default;

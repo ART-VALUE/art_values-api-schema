@@ -1,13 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class AuctionResponse {
-    static fromJson(json) {
-        // TODO:validation
-        const res = json;
-        return res;
-    }
-}
-exports.AuctionResponse = AuctionResponse;
 class ItemDeletedResponse {
     static fromJson(json) {
         const res = new ItemDeletedResponse();
@@ -15,4 +7,4 @@ class ItemDeletedResponse {
         return res;
     }
 }
-exports.ItemDeletedResponse = ItemDeletedResponse;
+exports.default = ItemDeletedResponse;

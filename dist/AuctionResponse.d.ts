@@ -1,6 +1,6 @@
 import AuctionStatus from './AutionStatus';
-declare class AuctionResponse {
-    readonly id?: string;
+export default class AuctionResponse {
+    id: string;
     value: string;
     description: string;
     createdAt: Date;
@@ -23,5 +23,5 @@ declare class AuctionResponse {
     finishedAt?: Date;
     status: AuctionStatus;
     lastBidValue: Number;
+    static fromJson(json: any): AuctionResponse;
 }
-export default AuctionResponse;

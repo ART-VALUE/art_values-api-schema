@@ -1,7 +1,7 @@
 import AuctionStatus from './AutionStatus'
   
-class AuctionUpdateResponse {
-  readonly id?: string;
+export default class AuctionResponse {
+  id: string;
   value: string;
   description: string;
   createdAt: Date;
@@ -28,28 +28,8 @@ class AuctionUpdateResponse {
 
   static fromJson(json) {
     // TODO:validation
-    const res = json as AuctionUpdateResponse
+    const res = json as AuctionResponse
 
     return res
   } 
-}
-
-
-class AuctionDeleteResponse {
-  id: string
-
-  static fromJson(json) {
-    const res = new AuctionDeleteResponse()
-    res.id = json.id
-
-    return res
-  }
-}
-
-class AuctionAddResponse extends AuctionUpdateResponse {}
-
-export {
-  AuctionAddResponse,
-  AuctionUpdateResponse,
-  AuctionDeleteResponse,
 }

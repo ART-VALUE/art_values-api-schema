@@ -1,33 +1,36 @@
-import {AuctionAddResponse, AuctionDeleteResponse, AuctionUpdateResponse} from './AuctionResponses'
+import ItemDeletedResponse from './ItemDeletedResponse'
+import AuctionResponse from './AuctionResponse'
+import ArtValueResponse from './ArtValueResponse'
 
-const AUCTIONS_CREATED = 'AUCTIONS:CREATED'
-const AUCTIONS_UPDATED = 'AUCTIONS:UPDATED'
-const AUCTIONS_DELETED = 'AUCTIONS:DELETED'
-
-export const EVENT_TYPES = {
-  AUCTIONS_CREATED,
-  AUCTIONS_UPDATED,
-  AUCTIONS_DELETED,
+export enum EVENT_TYPES {
+  AUCTIONS_CREATED = 'AUCTIONS:CREATED',
+  AUCTIONS_UPDATED = 'AUCTIONS_UPDATED',
+  AUCTIONS_DELETED = 'AUCTIONS:DELETED',
+  ART_VALUES_CREATED = 'ART_VALUES:CREATED',
+  ART_VALUES_UPDATED = 'ART_VALUES:UPDATED',
+  ART_VALUES_DELETED = 'ART_VALUES:DELETED',
 }
 
 const eventSet = {
-  [EVENT_TYPES.AUCTIONS_CREATED]: AuctionAddResponse.fromJson,
-  [EVENT_TYPES.AUCTIONS_UPDATED]: AuctionUpdateResponse.fromJson,
-  [EVENT_TYPES.AUCTIONS_DELETED]: AuctionDeleteResponse.fromJson,
-
+  [EVENT_TYPES.AUCTIONS_CREATED]: AuctionResponse.fromJson,
+  [EVENT_TYPES.AUCTIONS_UPDATED]: AuctionResponse.fromJson,
+  [EVENT_TYPES.AUCTIONS_DELETED]: ItemDeletedResponse.fromJson,
+  [EVENT_TYPES.ART_VALUES_CREATED]: ArtValueResponse.fromJson,
+  [EVENT_TYPES.ART_VALUES_UPDATED]: ArtValueResponse.fromJson,
+  [EVENT_TYPES.ART_VALUES_DELETED]: ItemDeletedResponse.fromJson,
 }
 
 export class ArtValueEvent {
-  type: typeof EVENT_TYPES
-  payload: AuctionAddResponse | AuctionDeleteResponse | AuctionUpdateResponse
+  type: EVENT_TYPES
+  payload: AuctionResponse | ItemDeletedResponse | ArtValueResponse
 
   static fromJson(jsonStr: string): [boolean, ArtValueEvent|null] {
     try {
       const json = JSON.parse(jsonStr)
-      if (eventSet[json.eventType]) {
+      if (eventSet[json.type]) {
         const res = new ArtValueEvent()
-        res.type = json.eventType
-        res.payload = eventSet[json.eventType](json.payload)
+        res.type = json.type
+        res.payload = eventSet[json.type](json.payload)
 
         return [true, res]
       }
