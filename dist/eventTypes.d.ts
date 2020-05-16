@@ -1,6 +1,0 @@
-declare enum EVENT_TYPES {
-    AUCTIONS_CREATED = 0,
-    AUCTIONS_DELETED = 1,
-    AUCTIONS_UPDATED = 2
-}
-export default EVENT_TYPES;
