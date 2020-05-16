@@ -1,4 +1,5 @@
 import AuctionStatus from './AutionStatus'
+import AuctionType from './AutionType';
   
 export default class AuctionResponse {
   id: string;
@@ -25,6 +26,8 @@ export default class AuctionResponse {
   status: AuctionStatus;
 
   lastBidValue: Number;
+
+  type: AuctionType;
 
   static fromJson(json) {
     // TODO:validation
