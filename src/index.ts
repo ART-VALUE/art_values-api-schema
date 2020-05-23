@@ -1,12 +1,8 @@
 
-export * from './AutionStatus'
+export {default as AuctionStatus} from './AutionStatus'
 export * from './events'
-export * from './AuctionResponse'
-export * from './ItemDeletedResponse'
-export * from './ArtValueResponse'
-export * from './ArtValuePagedResponse'
-import AuctionPagedResponse from  './AuctionPagedResponse'
-
-export {
-  AuctionPagedResponse,
-}
+export { default as AuctionResponse } from './AuctionResponse'
+export { default as ItemDeletedResponse } from './ItemDeletedResponse'
+export { default as ArtValueResponse } from './ArtValueResponse'
+export { default as ArtValuePagedResponse } from './ArtValuePagedResponse'
+export { default as AuctionPagedResponse } from  './AuctionPagedResponse'

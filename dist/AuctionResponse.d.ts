@@ -23,7 +23,7 @@ export default class AuctionResponse {
      */
     finishedAt?: Date;
     status: AuctionStatus;
-    lastBidValue: Number;
+    lastBidValue: string;
     lastBidderId: string;
     type: AuctionType;
     static fromJson(json: any): AuctionResponse;
