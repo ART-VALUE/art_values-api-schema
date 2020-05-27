@@ -25,6 +25,11 @@ export default class AuctionResponse {
     status: AuctionStatus;
     lastBidValue: string;
     lastBidderId: string;
+    latestBids: {
+        username: string;
+        value: string;
+        createdAt: Date;
+    }[];
     type: AuctionType;
     static fromJson(json: any): AuctionResponse;
 }
