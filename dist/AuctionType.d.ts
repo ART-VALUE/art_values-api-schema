@@ -1,5 +1,5 @@
 export declare enum AuctionType {
-    TRADITIONAL = "TRADICTIONAL",
+    TRADITIONAL = "TRADITIONAL",
     GENERATIVE = "GENERATIVE"
 }
 export default AuctionType;

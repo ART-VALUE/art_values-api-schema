@@ -1,5 +1,5 @@
-import AuctionStatus from './AutionStatus';
-import AuctionType from './AutionType';
+import AuctionStatus from './AuctionStatus';
+import AuctionType from './AuctionType';
 export default class AuctionResponse {
     id: string;
     value: string;
